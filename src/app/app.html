@@ -16,6 +16,9 @@
     </svg>
     <h1 class="header__title">Glyph Forge</h1>
   </div>
+
+  <app-theme-switcher class="header__themes" />
+
   @if (fontService.isLoaded()) {
     <span class="header__filename">{{ fontService.loadedFont()?.fileName }}</span>
     <button class="header__btn" (click)="fontService.removeFont()">

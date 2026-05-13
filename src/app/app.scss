@@ -35,8 +35,11 @@
   letter-spacing: -0.02em;
 }
 
-.header__filename {
+.header__themes {
   margin-left: auto;
+}
+
+.header__filename {
   padding: 6px 14px;
   background: var(--bg-elevated);
   border: 1px solid var(--border-color);

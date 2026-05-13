@@ -7,6 +7,7 @@ import { TypePreviewComponent } from '../../components/type-preview/type-preview
 import { FontAdjustmentsComponent } from '../../components/font-adjustments/font-adjustments';
 import { GlyphGridComponent } from '../../components/glyph-grid/glyph-grid';
 import { GlyphDetailComponent } from '../../components/glyph-detail/glyph-detail';
+import { FontFormatsInfoComponent } from '../../components/font-formats-info/font-formats-info';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ import { GlyphDetailComponent } from '../../components/glyph-detail/glyph-detail
     FontAdjustmentsComponent,
     GlyphGridComponent,
     GlyphDetailComponent,
+    FontFormatsInfoComponent,
   ],
   template: `
     @if (fontService.isLoaded()) {
@@ -52,6 +54,7 @@ import { GlyphDetailComponent } from '../../components/glyph-detail/glyph-detail
           <p>Upload a font file to preview glyphs, test typography, and inspect details</p>
         </div>
         <app-file-drop-zone (fileSelected)="onFileSelected($event)" />
+        <app-font-formats-info />
         @if (fontService.isLoading()) {
           <div class="loading-spinner" role="status" aria-label="Loading font">
             <span class="spinner"></span>
