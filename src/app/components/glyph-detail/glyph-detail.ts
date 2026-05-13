@@ -20,14 +20,14 @@ import { FontService } from '../../services/font.service';
     'aria-modal': 'true',
     '[attr.aria-label]': '"Glyph detail for " + glyph().name',
     '(click)': 'onBackdropClick($event)',
-    '(keydown.escape)': 'close.emit()',
+    '(keydown.escape)': 'dismissed.emit()',
     tabindex: '-1',
   },
   template: `
-    <div class="detail-panel" (click)="$event.stopPropagation()">
+    <div class="detail-panel">
       <div class="detail-header">
         <h4>{{ glyph().name }}</h4>
-        <button class="detail-close" (click)="close.emit()" aria-label="Close glyph detail">
+        <button class="detail-close" (click)="dismissed.emit()" aria-label="Close glyph detail">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -145,7 +145,7 @@ import { FontService } from '../../services/font.service';
 })
 export class GlyphDetailComponent {
   readonly glyph = input.required<FontGlyph>();
-  readonly close = output<void>();
+  readonly dismissed = output<void>();
 
   private readonly fontService = inject(FontService);
   private readonly el = inject(ElementRef);
@@ -180,7 +180,7 @@ export class GlyphDetailComponent {
 
   protected onBackdropClick(event: MouseEvent): void {
     if (event.target === this.el.nativeElement) {
-      this.close.emit();
+      this.dismissed.emit();
     }
   }
 }

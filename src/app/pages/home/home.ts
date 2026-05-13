@@ -45,7 +45,7 @@ import { FontFormatsInfoComponent } from '../../components/font-formats-info/fon
       </div>
 
       @if (selectedGlyph()) {
-        <app-glyph-detail [glyph]="selectedGlyph()!" (close)="selectedGlyph.set(null)" />
+        <app-glyph-detail [glyph]="selectedGlyph()!" (dismissed)="selectedGlyph.set(null)" />
       }
     } @else {
       <section class="upload-section">
